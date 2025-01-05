@@ -1,5 +1,5 @@
 const App = () => {
-    return <h1>My Trello</h1>
+    return <div className="max-w-screen-fullHd">My Trello</div>
 }
 
 export default App
