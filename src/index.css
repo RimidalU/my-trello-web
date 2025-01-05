@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --background: #242424;
+    --foreground: #ffffff60;
+    --foreground-bold: #ffffff87;
+    --warning: FC363960;
+    --active: #0184cf;
+
+    color: var(--foreground);
+    background: var(--background);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    /* @apply w-screen h-screen; */
+}
+
+body {
+    @apply w-screen h-screen flex justify-center;
+    background-image: url('/image.jpg');
+    background-size: cover;
+    background-position: center;
+}
