@@ -18,7 +18,7 @@
 
 body {
     @apply w-screen h-screen flex justify-center;
-    background-image: url('./assets/images/image.jpg');
+    background-image: url('./assets/images/image.webp');
     background-size: cover;
     background-position: center;
 }
