@@ -5,6 +5,12 @@ enum TaskType {
     Done = 'done',
 }
 
+enum ColumnNameType {
+    todo = 'To Do',
+    in_progress = 'In Progress',
+    review = 'Review',
+    done = 'Done',
+}
 interface TaskItem {
     id: number
     type: TaskType
@@ -14,4 +20,4 @@ interface TaskItem {
 }
 
 export type { TaskItem }
-export { TaskType }
+export { TaskType, ColumnNameType }

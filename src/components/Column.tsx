@@ -1,16 +1,25 @@
 import clsx from 'clsx'
 
-import { TaskItem } from '../models/task.model'
+import { ColumnNameType, TaskItem, TaskType } from '../models/task.model'
+import { getTasksByType } from '../utils/task.utils'
+
+import TaskCard from './TaskCard'
 
 interface ColumnProps {
-    tasks: TaskItem[]
+    taskType: TaskType
     className?: string
 }
-function Column({ tasks, className }: ColumnProps) {
+function Column({ taskType, className }: ColumnProps) {
+    const tasks: TaskItem[] = getTasksByType(taskType)
     return (
-        <ul className={clsx('', className)}>
+        <ul className={clsx('px-5 py-4 bg-columnBackground', className)}>
+            <h2 className="text-foregroundBold text-2xl font-bold">
+                {ColumnNameType[taskType]}
+            </h2>
             {tasks.map((task) => (
-                <li key={task.id}>{task.text}</li>
+                <li key={task.id}>
+                    <TaskCard task={task} />
+                </li>
             ))}
         </ul>
     )
