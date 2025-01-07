@@ -14,11 +14,10 @@
     color: var(--foreground);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    max-width: 1920px;
 }
 
 body {
-    @apply w-screen h-screen flex justify-center;
+    @apply w-screen h-screen;
     background-image: url('./assets/images/image.webp');
     background-size: cover;
     background-position: center;

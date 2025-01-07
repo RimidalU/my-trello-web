@@ -1,14 +1,27 @@
+import clsx from 'clsx'
+
 import { TaskType } from '../models/task.model'
 
-function Board() {
+import Column from './Column'
+
+interface BoardProps {
+    className?: string
+}
+
+function Board({ className }: BoardProps) {
     return (
-        <div>
-            <ul>
-                {Object.values(TaskType).map((task) => (
-                    <li key={task}>{task}</li>
-                ))}
-            </ul>
-        </div>
+        <ul
+            className={clsx(
+                'flex gap-10 justify-center w-full max-w-screen-fullHd',
+                className
+            )}
+        >
+            {Object.values(TaskType).map((taskType) => (
+                <li key={taskType}>
+                    <Column taskType={taskType} />
+                </li>
+            ))}
+        </ul>
     )
 }
 
