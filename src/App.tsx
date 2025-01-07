@@ -5,7 +5,7 @@ const App = () => {
     return (
         <>
             <Header />
-            <main className="max-w-screen-fullHd">
+            <main className="">
                 <Board />
             </main>
         </>

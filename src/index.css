@@ -12,9 +12,9 @@
     --active: #0184cf;
 
     color: var(--foreground);
-    background: var(--background);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    max-width: 1920px;
 }
 
 body {

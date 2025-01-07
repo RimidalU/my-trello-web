@@ -12,9 +12,9 @@ export default {
                 warning: 'var(--warning)',
                 active: 'var(--active)',
             },
-        },
-        screens: {
-            fullHd: '1920px',
+            screens: {
+                fullHd: '1920px',
+            },
         },
     },
     plugins: [],
