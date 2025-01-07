@@ -1,8 +1,8 @@
 enum TaskType {
-    Done = 'done',
     Todo = 'todo',
     InProgress = 'in_progress',
     Review = 'review',
+    Done = 'done',
 }
 
 interface TaskItem {
