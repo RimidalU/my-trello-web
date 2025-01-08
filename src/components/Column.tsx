@@ -12,16 +12,23 @@ interface ColumnProps {
 function Column({ taskType, className }: ColumnProps) {
     const tasks: TaskItem[] = getTasksByType(taskType)
     return (
-        <ul className={clsx('px-5 py-4 bg-columnBackground', className)}>
+        <article>
             <h2 className="text-foregroundBold text-2xl font-bold">
                 {ColumnNameType[taskType]}
             </h2>
-            {tasks.map((task) => (
-                <li key={task.id}>
-                    <TaskCard task={task} />
-                </li>
-            ))}
-        </ul>
+            <ul
+                className={clsx(
+                    'flex flex-col gap-4 px-5 py-4 bg-columnBackground',
+                    className
+                )}
+            >
+                {tasks.map((task) => (
+                    <li key={task.id}>
+                        <TaskCard task={task} />
+                    </li>
+                ))}
+            </ul>
+        </article>
     )
 }
 
