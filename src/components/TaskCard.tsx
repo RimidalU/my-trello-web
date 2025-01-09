@@ -2,6 +2,7 @@ import clsx from 'clsx'
 
 import { TaskItem } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
+import { isTaskOverdue } from '../utils/task.utils'
 
 interface TaskCardProps {
     task: TaskItem
@@ -9,6 +10,8 @@ interface TaskCardProps {
 }
 
 function TaskCard({ task, className }: TaskCardProps) {
+    const isOverdue = isTaskOverdue(task.endDay)
+
     return (
         <article className={clsx('bg-cardBackground p-4 rounded', className)}>
             <div className="flex gap-4">
@@ -19,7 +22,11 @@ function TaskCard({ task, className }: TaskCardProps) {
             </div>
             <div className="flex gap-4">
                 <span>Окончание:</span>
-                <strong className="text-foregroundBold">
+                <strong
+                    className={
+                        isOverdue ? 'text-warning' : 'text-foregroundBold'
+                    }
+                >
                     {timestampToDateConvertor(task.endDay)}
                 </strong>
             </div>
