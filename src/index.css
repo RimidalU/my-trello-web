@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --background: #242424;
+    --column-background: rgba(0, 0, 0, 0.7);
+    --card-background: rgba(255, 255, 255, 0.1);
+    --foreground: rgba(255, 255, 255, 0.6);
+    --foreground-bold: rgba(255, 255, 255, 0.87);
+    --warning: rgba(252, 54, 57, 0.6);
+    --active: #0184cf;
+
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+body {
+    @apply w-screen h-screen;
+    background-image: url('./assets/images/image.webp');
+    background-size: cover;
+    background-position: center;
+}
