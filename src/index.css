@@ -4,11 +4,11 @@
 
 :root {
     --background: #242424;
-    --column-background: #00000070;
-    --card-background: #ffffff10;
-    --foreground: #ffffff60;
-    --foreground-bold: #ffffff87;
-    --warning: FC363960;
+    --column-background: rgba(0, 0, 0, 0.7);
+    --card-background: rgba(255, 255, 255, 0.1);
+    --foreground: rgba(255, 255, 255, 0.6);
+    --foreground-bold: rgba(255, 255, 255, 0.87);
+    --warning: rgba(252, 54, 57, 0.6);
     --active: #0184cf;
 
     color: var(--foreground);
