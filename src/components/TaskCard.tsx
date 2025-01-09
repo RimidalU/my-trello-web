@@ -10,20 +10,20 @@ interface TaskCardProps {
 
 function TaskCard({ task, className }: TaskCardProps) {
     return (
-        <article className={clsx('bg-cardBackground p-4', className)}>
-            <div className="card__field">
+        <article className={clsx('bg-cardBackground p-4 rounded', className)}>
+            <div className="flex gap-4">
                 <span>Начало:</span>
                 <strong className="text-foregroundBold">
                     {timestampToDateConvertor(task.startDay)}
                 </strong>
             </div>
-            <div className="card__field">
+            <div className="flex gap-4">
                 <span>Окончание:</span>
                 <strong className="text-foregroundBold">
                     {timestampToDateConvertor(task.endDay)}
                 </strong>
             </div>
-            <div className="card__field">
+            <div className="flex gap-4">
                 <span>Описание:</span>
                 <strong className="text-foregroundBold">{task.text}</strong>
             </div>
