@@ -2,6 +2,7 @@ import clsx from 'clsx'
 
 import { TaskItem, TaskType } from '../models/task.model'
 import { getTasksByType } from '../utils/task.utils'
+import { useTasks } from '../contexts/TaskProvider'
 
 import TaskCard from './TaskCard'
 import ColumnHeader from './ColumnHeader'
@@ -11,7 +12,9 @@ interface ColumnProps {
     className?: string
 }
 function Column({ taskType, className }: ColumnProps) {
-    const tasks: TaskItem[] = getTasksByType(taskType)
+    const { state } = useTasks()
+
+    const tasks: TaskItem[] = getTasksByType(state.tasks, taskType)
     return (
         <article
             className={clsx('py-8 px-4 bg-columnBackground rounded', className)}
