@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useDraggable } from '@dnd-kit/core'
 
 import { TaskItem } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
@@ -10,10 +11,26 @@ interface TaskCardProps {
 }
 
 function TaskCard({ task, className }: TaskCardProps) {
+    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+        id: task.id,
+        data: task,
+    })
     const isOverdue = isTaskOverdue(task.endDay)
 
+    const style = transform
+        ? {
+              transform: `translate(${transform.x}px, ${transform.y}px)`,
+          }
+        : undefined
+
     return (
-        <article className={clsx('bg-cardBackground p-4 rounded', className)}>
+        <article
+            ref={setNodeRef}
+            {...listeners}
+            {...attributes}
+            style={style}
+            className={clsx('bg-cardBackground p-4 rounded', className)}
+        >
             <div className="flex gap-4">
                 <span>Начало:</span>
                 <strong className="text-foregroundBold">
