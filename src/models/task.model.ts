@@ -19,5 +19,7 @@ interface TaskItem {
     text: string
 }
 
+const TASK_PURGE_ID = 'taskPurgeId'
+
 export type { TaskItem }
-export { TaskType, ColumnNameType }
+export { TaskType, ColumnNameType, TASK_PURGE_ID }
