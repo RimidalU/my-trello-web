@@ -29,7 +29,10 @@ function TaskCard({ task, className }: TaskCardProps) {
             {...listeners}
             {...attributes}
             style={style}
-            className={clsx('bg-cardBackground p-4 rounded', className)}
+            className={clsx(
+                'bg-cardBackground p-4 rounded touch-none',
+                className
+            )}
         >
             <div className="flex gap-4">
                 <span>Начало:</span>
