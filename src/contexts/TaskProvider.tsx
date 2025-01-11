@@ -1,6 +1,7 @@
-import { ReactNode, useContext, useReducer } from 'react'
+import { ReactNode, useContext, useEffect, useReducer } from 'react'
 
-import { Action, State } from '../models/taskContext.model'
+import { Action, State, TaskAction } from '../models/taskContext.model'
+import { getTasks, saveTasks } from '../repositories/tasks.repository'
 
 import { initialState, TaskContext } from './TaskContext'
 
@@ -27,6 +28,19 @@ const taskReducer = (state: State, action: Action): State => {
 
 const TaskProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(taskReducer, initialState)
+
+    useEffect(() => {
+        const storedTasks = getTasks()
+
+        if (storedTasks) {
+            dispatch({ type: TaskAction.load_tasks, tasks: storedTasks })
+        }
+    }, [])
+
+    useEffect(() => {
+        saveTasks(state.tasks)
+    }, [state.tasks])
+
     return (
         <TaskContext.Provider value={{ state, dispatch }}>
             {children}
