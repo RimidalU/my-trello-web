@@ -5,6 +5,7 @@ enum TaskAction {
     remove_task = 'REMOVE_TASK',
     update_task = 'UPDATE_TASK',
     load_tasks = 'LOAD_TASKS',
+    remove_done_tasks = 'REMOVE_DONE_TASKS',
 }
 
 type Action =
@@ -12,6 +13,7 @@ type Action =
     | { type: TaskAction.remove_task; id: number }
     | { type: TaskAction.update_task; task: TaskItem }
     | { type: TaskAction.load_tasks; tasks: TaskItem[] }
+    | { type: TaskAction.remove_done_tasks }
 
 type State = {
     tasks: TaskItem[]
