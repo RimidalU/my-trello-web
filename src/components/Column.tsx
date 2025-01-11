@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useDroppable } from '@dnd-kit/core'
 
 import { TaskItem, TaskType } from '../models/task.model'
 import { getTasksByType } from '../utils/task.utils'
@@ -12,11 +13,16 @@ interface ColumnProps {
     className?: string
 }
 function Column({ taskType, className }: ColumnProps) {
+    const { setNodeRef } = useDroppable({
+        id: taskType,
+    })
+
     const { state } = useTasks()
 
     const tasks: TaskItem[] = getTasksByType(state.tasks, taskType)
     return (
         <article
+            ref={setNodeRef}
             className={clsx('py-8 px-4 bg-columnBackground rounded', className)}
         >
             <ColumnHeader taskType={taskType} />
