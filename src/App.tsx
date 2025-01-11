@@ -1,5 +1,6 @@
 // import Header from './components/Header'
 import Board from './components/Board'
+import { TaskProvider } from './contexts/TaskProvider'
 
 const App = () => {
     return (
@@ -11,7 +12,9 @@ const App = () => {
                         Your tasks
                     </h1>
                 </div>
-                <Board />
+                <TaskProvider>
+                    <Board />
+                </TaskProvider>
             </main>
         </>
     )
