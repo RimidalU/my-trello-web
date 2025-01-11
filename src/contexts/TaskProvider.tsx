@@ -2,6 +2,7 @@ import { ReactNode, useContext, useEffect, useReducer } from 'react'
 
 import { Action, State, TaskAction } from '../models/taskContext.model'
 import { getTasks, saveTasks } from '../repositories/tasks.repository'
+import { TaskType } from '../models/task.model'
 
 import { initialState, TaskContext } from './TaskContext'
 
@@ -13,6 +14,13 @@ const taskReducer = (state: State, action: Action): State => {
             return {
                 ...state,
                 tasks: state.tasks.filter((task) => task.id !== action.id),
+            }
+        case 'REMOVE_DONE_TASKS':
+            return {
+                ...state,
+                tasks: state.tasks.filter(
+                    (task) => task.type !== TaskType.Done
+                ),
             }
         case 'UPDATE_TASK':
             return {

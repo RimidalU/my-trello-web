@@ -6,6 +6,7 @@ import GhostIcon from './icons/GhostIcon'
 import HappyIcon from './icons/HappyIcon'
 import SmileIcon from './icons/SmileIcon'
 import UpsideDownIcon from './icons/UpsideDownIcon'
+import TaskPurge from './TaskPurge'
 
 interface ColumnHeaderProps {
     taskType: TaskType
@@ -26,15 +27,13 @@ function ColumnHeader({ taskType, className }: ColumnHeaderProps) {
     }
 
     return (
-        <h2
-            className={clsx(
-                'flex gap-2 text-foregroundBold text-2xl font-bold mb-4',
-                className
-            )}
-        >
-            {icon}
-            {text}
-        </h2>
+        <div className={clsx('flex justify-between', className)}>
+            <h2 className="flex gap-2 text-foregroundBold text-2xl font-bold mb-4">
+                {icon}
+                {text}
+            </h2>
+            {taskType === TaskType.Done && <TaskPurge />}
+        </div>
     )
 }
 
