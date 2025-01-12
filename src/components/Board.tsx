@@ -40,7 +40,7 @@ function Board({ className }: BoardProps) {
         >
             <DndContext onDragEnd={handleDragEnd}>
                 {Object.values(TaskType).map((taskType) => (
-                    <li key={taskType}>
+                    <li className="flex-1 " key={taskType}>
                         <Column taskType={taskType} />
                     </li>
                 ))}
