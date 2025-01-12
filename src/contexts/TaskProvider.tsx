@@ -1,13 +1,19 @@
 import { ReactNode, useContext, useEffect, useReducer } from 'react'
 
 import { Action, State, TaskAction } from '../models/taskContext.model'
-import { getTasks, saveTasks } from '../repositories/tasks.repository'
+import {
+    getInitialTasks,
+    getTasks,
+    saveTasks,
+} from '../repositories/tasks.repository'
 import { TaskType } from '../models/task.model'
 
 import { initialState, TaskContext } from './TaskContext'
 
 const taskReducer = (state: State, action: Action): State => {
     switch (action.type) {
+        case 'LOAD_TASKS':
+            return { ...state, tasks: action.tasks }
         case 'ADD_TASK':
             return { ...state, tasks: [...state.tasks, action.task] }
         case 'REMOVE_TASK':
@@ -36,12 +42,16 @@ const taskReducer = (state: State, action: Action): State => {
 
 const TaskProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(taskReducer, initialState)
-
     useEffect(() => {
         const storedTasks = getTasks()
 
-        if (storedTasks) {
+        if (storedTasks.length) {
             dispatch({ type: TaskAction.load_tasks, tasks: storedTasks })
+        } else {
+            dispatch({
+                type: TaskAction.load_tasks,
+                tasks: getInitialTasks(),
+            })
         }
     }, [])
 
