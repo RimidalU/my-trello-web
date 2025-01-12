@@ -21,4 +21,5 @@ body {
     background-image: url('./assets/images/image.webp');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
