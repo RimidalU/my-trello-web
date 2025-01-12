@@ -56,6 +56,12 @@ const TaskProvider = ({ children }: { children: ReactNode }) => {
     }, [])
 
     useEffect(() => {
+        if (!state.tasks.length) {
+            dispatch({
+                type: TaskAction.load_tasks,
+                tasks: getInitialTasks(),
+            })
+        }
         saveTasks(state.tasks)
     }, [state.tasks])
 
