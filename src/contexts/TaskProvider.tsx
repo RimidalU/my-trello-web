@@ -35,6 +35,15 @@ const taskReducer = (state: State, action: Action): State => {
                     task.id === action.task.id ? action.task : task
                 ),
             }
+        case 'APPLY_FILTER':
+            return {
+                ...state,
+                filteredTasks: state.tasks.filter((task) =>
+                    task.text
+                        .toLowerCase()
+                        .includes(action.filter.toLowerCase())
+                ),
+            }
         default:
             return state
     }
@@ -75,4 +84,3 @@ const useTasks = () => {
 }
 
 export { TaskProvider, useTasks }
-о
