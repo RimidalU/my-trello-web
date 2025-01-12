@@ -25,13 +25,16 @@ function Column({ taskType, className }: ColumnProps) {
     return (
         <article
             className={clsx(
-                'py-8 px-4 bg-columnBackground rounded',
+                'py-4 xl:py-8 px-2 xl:px-4 bg-columnBackground rounded',
                 isCurrentColumn ? 'border-2 border-active' : '',
                 className
             )}
         >
             <ColumnHeader taskType={taskType} />
-            <ul ref={setNodeRef} className={'flex flex-col gap-4 pt-4'}>
+            <ul
+                ref={setNodeRef}
+                className={'flex flex-col gap-2 xl:gap-4 pt-2 xl:pt-4'}
+            >
                 {tasks.map((task) => (
                     <li key={task.id}>
                         <TaskCard task={task} />

@@ -30,17 +30,17 @@ function TaskCard({ task, className }: TaskCardProps) {
             {...attributes}
             style={style}
             className={clsx(
-                'bg-cardBackground p-4 rounded touch-none',
+                'bg-cardBackground p-2 xl:p-4 rounded touch-none text-xs xl:text-sm',
                 className
             )}
         >
-            <div className="flex gap-4">
+            <div className="flex gap-2 xl:gap-4">
                 <span>Начало:</span>
                 <strong className="text-foregroundBold">
                     {timestampToDateConvertor(task.startDay)}
                 </strong>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-2 xl:gap-4">
                 <span>Окончание:</span>
                 <strong
                     className={
@@ -50,7 +50,7 @@ function TaskCard({ task, className }: TaskCardProps) {
                     {timestampToDateConvertor(task.endDay)}
                 </strong>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-2 xl:gap-4">
                 <span>Описание:</span>
                 <strong className="text-foregroundBold">{task.text}</strong>
             </div>

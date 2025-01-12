@@ -42,7 +42,7 @@ function Board({ className }: BoardProps) {
     return (
         <ul
             className={clsx(
-                'flex gap-10 justify-center w-full max-w-screen-fullHd',
+                'flex gap-2 xl:gap-10 justify-center w-full max-w-screen-fullHd',
                 className
             )}
         >
