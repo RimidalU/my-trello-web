@@ -1,4 +1,6 @@
 import { TaskItem } from '../models/task.model'
+import tasks from '../assets/data/tasks.json'
+
 const LOCAl_STORAGE_KEY = 'tasks'
 
 const getTasks = (): TaskItem[] => {
@@ -9,4 +11,8 @@ const getTasks = (): TaskItem[] => {
 const saveTasks = (tasks: TaskItem[]): void =>
     localStorage.setItem(LOCAl_STORAGE_KEY, JSON.stringify(tasks))
 
-export { getTasks, saveTasks }
+const getInitialTasks = (): TaskItem[] => {
+    return tasks as TaskItem[]
+}
+
+export { getTasks, saveTasks, getInitialTasks }
