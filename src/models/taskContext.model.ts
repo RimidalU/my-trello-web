@@ -10,7 +10,7 @@ enum TaskAction {
 
 type Action =
     | { type: TaskAction.add_task; task: TaskItem }
-    | { type: TaskAction.remove_task; id: number }
+    | { type: TaskAction.remove_task; id: number | string }
     | { type: TaskAction.update_task; task: TaskItem }
     | { type: TaskAction.load_tasks; tasks: TaskItem[] }
     | { type: TaskAction.remove_done_tasks }

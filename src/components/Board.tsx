@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 
-import { TaskItem, TaskType } from '../models/task.model'
+import { TASK_PURGE_ID, TaskItem, TaskType } from '../models/task.model'
 import { useTasks } from '../contexts/TaskProvider'
 import { TaskAction } from '../models/taskContext.model'
 
@@ -18,6 +18,14 @@ function Board({ className }: BoardProps) {
         const { active, over } = event
 
         if (!over) return
+
+        if (over.id === TASK_PURGE_ID) {
+            dispatch({
+                type: TaskAction.remove_task,
+                id: active.id,
+            })
+            return
+        }
 
         const currentTask = active.data.current as TaskItem
         const newStatus = over.id as TaskType
