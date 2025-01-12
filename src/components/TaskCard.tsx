@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useDraggable } from '@dnd-kit/core'
 
-import { TaskItem } from '../models/task.model'
+import { TaskItem, TaskType } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
 import { isTaskOverdue } from '../utils/task.utils'
 
@@ -15,7 +15,7 @@ function TaskCard({ task, className }: TaskCardProps) {
         id: task.id,
         data: task,
     })
-    const isOverdue = isTaskOverdue(task.endDay)
+    const isOverdue = isTaskOverdue(task.endDay) && task.type !== TaskType.Done
 
     const style = transform
         ? {
