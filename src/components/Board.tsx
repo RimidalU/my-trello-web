@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 
-import { TaskItem, TaskType } from '../models/task.model'
+import { TASK_PURGE_ID, TaskItem, TaskType } from '../models/task.model'
 import { useTasks } from '../contexts/TaskProvider'
 import { TaskAction } from '../models/taskContext.model'
 
@@ -19,6 +19,14 @@ function Board({ className }: BoardProps) {
 
         if (!over) return
 
+        if (over.id === TASK_PURGE_ID) {
+            dispatch({
+                type: TaskAction.remove_task,
+                id: active.id,
+            })
+            return
+        }
+
         const currentTask = active.data.current as TaskItem
         const newStatus = over.id as TaskType
 
@@ -34,13 +42,13 @@ function Board({ className }: BoardProps) {
     return (
         <ul
             className={clsx(
-                'flex gap-10 justify-center w-full max-w-screen-fullHd',
+                'flex gap-2 xl:gap-10 justify-center w-full max-w-screen-fullHd',
                 className
             )}
         >
             <DndContext onDragEnd={handleDragEnd}>
                 {Object.values(TaskType).map((taskType) => (
-                    <li key={taskType}>
+                    <li className="flex-1 " key={taskType}>
                         <Column taskType={taskType} />
                     </li>
                 ))}
