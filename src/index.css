@@ -16,6 +16,10 @@
     font-size: 14px;
 }
 
+.root {
+    height: 100vh;
+}
+
 body {
     @apply w-screen h-screen;
     background-image: url('./assets/images/image.webp');
