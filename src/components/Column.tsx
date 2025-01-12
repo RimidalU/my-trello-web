@@ -13,20 +13,25 @@ interface ColumnProps {
     className?: string
 }
 function Column({ taskType, className }: ColumnProps) {
-    const { setNodeRef } = useDroppable({
+    const { setNodeRef, over } = useDroppable({
         id: taskType,
     })
 
     const { state } = useTasks()
 
+    const isCurrentColumn = over?.id === taskType
+
     const tasks: TaskItem[] = getTasksByType(state.tasks, taskType)
     return (
         <article
-            ref={setNodeRef}
-            className={clsx('py-8 px-4 bg-columnBackground rounded', className)}
+            className={clsx(
+                'py-8 px-4 bg-columnBackground rounded',
+                isCurrentColumn ? 'border-2 border-active' : '',
+                className
+            )}
         >
             <ColumnHeader taskType={taskType} />
-            <ul className={'flex flex-col gap-4'}>
+            <ul ref={setNodeRef} className={'flex flex-col gap-4 pt-4'}>
                 {tasks.map((task) => (
                     <li key={task.id}>
                         <TaskCard task={task} />
