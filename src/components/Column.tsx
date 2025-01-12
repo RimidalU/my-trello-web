@@ -21,7 +21,10 @@ function Column({ taskType, className }: ColumnProps) {
 
     const isCurrentColumn = over?.id === taskType
 
-    const tasks: TaskItem[] = getTasksByType(state.tasks, taskType)
+    const tasks: TaskItem[] = getTasksByType(
+        state.filteredTasks ? state.filteredTasks : state.tasks,
+        taskType
+    )
     return (
         <article
             className={clsx(
