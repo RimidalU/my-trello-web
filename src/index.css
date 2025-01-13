@@ -8,8 +8,11 @@
     --black-10: rgba(255, 255, 255, 0.1);
     --white-60: rgba(255, 255, 255, 0.6);
     --white-87: rgba(255, 255, 255, 0.87);
-    --white-30: rgba(255, 255, 255, 0.3), --warning: rgba(252, 54, 57, 0.6);
-    --active: #0184cf;
+    --white-30: rgba(255, 255, 255, 0.3);
+    --white-7: rgba(255, 255, 255, 0.07);
+    --warning: rgba(252, 54, 57, 0.6);
+    --active: rgba(1, 132, 207, 1);
+    --active-50: rgba(1, 132, 207, 0.5);
 
     color: var(--white-60);
     font-family: 'Inter', sans-serif;

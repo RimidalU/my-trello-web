@@ -9,12 +9,12 @@ const TaskFilter = () => {
     }
 
     return (
-        <div className="mb-4">
+        <div className="mb-4 w-1/4">
             <input
                 type="text"
                 placeholder="поиск..."
                 onChange={(e) => applyFilter(e.target.value)}
-                className="border rounded p-2 w-full bg-transparent"
+                className="border border-white-30 hover:border-active focus:border-active outline-none focus:ring-active-50 focus:ring-4 rounded-full w-full p-2 bg-white-7"
             />
         </div>
     )
