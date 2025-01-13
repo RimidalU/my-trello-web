@@ -5,10 +5,10 @@ export default {
         extend: {
             colors: {
                 background: 'var(--background)',
-                columnBackground: 'var(--column-background)',
-                cardBackground: 'var(--card-background)',
-                foreground: 'var(--foreground)',
-                foregroundBold: 'var(--foreground-bold)',
+                'black-70': 'var(--black-70)',
+                'black-10': 'var(--black-10)',
+                'white-60': 'var(--white-60)',
+                'white-87': 'var(--white-87)',
                 warning: 'var(--warning)',
                 active: 'var(--active)',
             },

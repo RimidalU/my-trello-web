@@ -28,7 +28,7 @@ function ColumnHeader({ taskType, className }: ColumnHeaderProps) {
 
     return (
         <div className={clsx('flex justify-between', className)}>
-            <h2 className="flex gap-2 text-foregroundBold text-lg xl:text-2xl font-bold mb-2 xl:mb-4">
+            <h2 className="flex gap-2 text-white-87 text-lg xl:text-2xl font-bold mb-2 xl:mb-4">
                 {icon}
                 {text}
             </h2>

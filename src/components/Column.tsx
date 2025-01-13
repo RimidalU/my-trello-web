@@ -28,7 +28,7 @@ function Column({ taskType, className }: ColumnProps) {
     return (
         <article
             className={clsx(
-                'py-4 xl:py-8 px-2 xl:px-4 bg-columnBackground rounded',
+                'py-4 xl:py-8 px-2 xl:px-4 bg-black-70 rounded',
                 isCurrentColumn ? 'border-2 border-active' : '',
                 className
             )}

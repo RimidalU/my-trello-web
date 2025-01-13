@@ -4,14 +4,14 @@
 
 :root {
     --background: #242424;
-    --column-background: rgba(0, 0, 0, 0.7);
-    --card-background: rgba(255, 255, 255, 0.1);
-    --foreground: rgba(255, 255, 255, 0.6);
-    --foreground-bold: rgba(255, 255, 255, 0.87);
-    --warning: rgba(252, 54, 57, 0.6);
+    --black-70: rgba(0, 0, 0, 0.7);
+    --black-10: rgba(255, 255, 255, 0.1);
+    --white-60: rgba(255, 255, 255, 0.6);
+    --white-87: rgba(255, 255, 255, 0.87);
+    --white-30: rgba(255, 255, 255, 0.3), --warning: rgba(252, 54, 57, 0.6);
     --active: #0184cf;
 
-    color: var(--foreground);
+    color: var(--white-60);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
