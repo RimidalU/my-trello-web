@@ -9,7 +9,7 @@ const TaskFilter = () => {
     }
 
     return (
-        <div className="mb-4 w-1/4">
+        <div className="mb-4 md:w-[calc(25%-25px)] sm:w-1/2 w-full">
             <input
                 type="text"
                 placeholder="поиск..."
