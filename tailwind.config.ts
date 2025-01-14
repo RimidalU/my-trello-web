@@ -10,6 +10,8 @@ export default {
                 'white-60': 'var(--white-60)',
                 'white-87': 'var(--white-87)',
                 'white-30': 'var(--white-30)',
+                'white-20': 'var(--white-20)',
+                'white-8': 'var(--white-8)',
                 'white-7': 'var(--white-7)',
                 warning: 'var(--warning)',
                 active: 'var(--active)',
