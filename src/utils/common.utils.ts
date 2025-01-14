@@ -11,4 +11,10 @@ const getStartAndEndOfDay = (date: string) => {
     return { startOfDay, endOfDay }
 }
 
-export { timestampToDateConvertor, getStartAndEndOfDay }
+const isTimestampInRange = (
+    timestamp: number,
+    start: number,
+    end: number
+): boolean => timestamp >= start && timestamp <= end
+
+export { timestampToDateConvertor, getStartAndEndOfDay, isTimestampInRange }
