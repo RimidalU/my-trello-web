@@ -11,7 +11,7 @@ const TaskFilter = () => {
     }
 
     return (
-        <div className="mb-4 md:w-[calc(25%-25px)] sm:w-1/2 w-full relative">
+        <div className="mb-4 ml-4 md:w-[calc(25%-25px)] relative">
             <SearchIcon className="absolute left-5 top-1/2 transform -translate-y-1/2" />
             <input
                 type="text"
