@@ -4,6 +4,7 @@ import { Action, State } from '../models/taskContext.model'
 import { getInitialTasks, getTasks } from '../repositories/tasks.repository'
 
 const initialState: State = {
+    filteredTasks: [],
     tasks: getTasks() ?? getInitialTasks(),
 }
 
