@@ -23,7 +23,7 @@ const TaskPurge = () => {
             onClick={removeDoneTasks}
         >
             <TrashIcon
-                className={`${isOver ? 'text-active' : 'text-foregroundBold'} hover:text-active`}
+                className={`${isOver ? 'text-active' : 'text-white-87'} hover:text-active`}
             />
         </div>
     )

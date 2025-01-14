@@ -1,5 +1,7 @@
 import { TaskItem, TaskType } from '../models/task.model'
 
+import { getStartAndEndOfDay, isTimestampInRange } from './common.utils'
+
 const getTasksByType = (tasks: TaskItem[], type: TaskType) => {
     return tasks.filter((task) => task.type === type) as TaskItem[]
 }
@@ -9,4 +11,26 @@ const isTaskOverdue = (dueDateTimestamp: number | string): boolean => {
     return Number(dueDateTimestamp) < currentDate
 }
 
-export { getTasksByType, isTaskOverdue }
+const filterTasks = (tasks: TaskItem[], filter: string) => {
+    const { startOfDay, endOfDay } = getStartAndEndOfDay(filter)
+
+    return tasks.filter((task) => {
+        const textMatch = task.text.toLowerCase().includes(filter.toLowerCase())
+
+        const startDayMatch = isTimestampInRange(
+            task.startDay,
+            startOfDay,
+            endOfDay
+        )
+
+        const endDayMatch = isTimestampInRange(
+            task.endDay,
+            startOfDay,
+            endOfDay
+        )
+
+        return textMatch || startDayMatch || endDayMatch
+    })
+}
+
+export { getTasksByType, isTaskOverdue, filterTasks }

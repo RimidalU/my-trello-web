@@ -7,6 +7,7 @@ import {
     saveTasks,
 } from '../repositories/tasks.repository'
 import { TaskType } from '../models/task.model'
+import { filterTasks } from '../utils/task.utils'
 
 import { initialState, TaskContext } from './TaskContext'
 
@@ -35,6 +36,11 @@ const taskReducer = (state: State, action: Action): State => {
                     task.id === action.task.id ? action.task : task
                 ),
             }
+        case 'APPLY_FILTER':
+            return {
+                ...state,
+                filteredTasks: filterTasks(state.tasks, action.filter),
+            }
         default:
             return state
     }
@@ -56,12 +62,6 @@ const TaskProvider = ({ children }: { children: ReactNode }) => {
     }, [])
 
     useEffect(() => {
-        if (!state.tasks.length) {
-            dispatch({
-                type: TaskAction.load_tasks,
-                tasks: getInitialTasks(),
-            })
-        }
         saveTasks(state.tasks)
     }, [state.tasks])
 
