@@ -7,6 +7,7 @@ import {
     saveTasks,
 } from '../repositories/tasks.repository'
 import { TaskType } from '../models/task.model'
+import { filterTasks } from '../utils/task.utils'
 
 import { initialState, TaskContext } from './TaskContext'
 
@@ -38,11 +39,7 @@ const taskReducer = (state: State, action: Action): State => {
         case 'APPLY_FILTER':
             return {
                 ...state,
-                filteredTasks: state.tasks.filter((task) =>
-                    task.text
-                        .toLowerCase()
-                        .includes(action.filter.toLowerCase())
-                ),
+                filteredTasks: filterTasks(state.tasks, action.filter),
             }
         default:
             return state
