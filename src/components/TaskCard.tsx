@@ -5,7 +5,6 @@ import { ChangeEvent, useState } from 'react'
 import { TaskItem, TaskType } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
 import { isTaskOverdue } from '../utils/task.utils'
-import { FieldNameType } from '../models/common.model'
 
 import TaskCardActions from './TaskCardActions'
 import CardFIeld from './CardFIeld'
@@ -45,6 +44,8 @@ function TaskCard({ task, className }: TaskCardProps) {
     }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        event.stopPropagation()
+
         const { name, value } = event.target
         setEditedTask((prevTask) => ({ ...prevTask, [name]: value }))
     }
@@ -54,10 +55,11 @@ function TaskCard({ task, className }: TaskCardProps) {
         handleEdit()
     }
 
+    const list = isEditing ? null : listeners
     return (
         <article
             ref={setNodeRef}
-            {...listeners}
+            {...list}
             {...attributes}
             style={style}
             className={clsx(
@@ -66,14 +68,14 @@ function TaskCard({ task, className }: TaskCardProps) {
             )}
         >
             <CardFIeld
-                fieldName={FieldNameType.startDay}
+                fieldName={'startDay'}
                 isEditing={isEditing}
                 onChange={handleInputChange}
                 value={timestampToDateConvertor(editedTask.startDay)}
             />
 
             <CardFIeld
-                fieldName={FieldNameType.endDay}
+                fieldName={'endDay'}
                 isEditing={isEditing}
                 isOverdue={isOverdue}
                 onChange={handleInputChange}
@@ -81,7 +83,7 @@ function TaskCard({ task, className }: TaskCardProps) {
             />
 
             <CardFIeld
-                fieldName={FieldNameType.text}
+                fieldName={'text'}
                 isEditing={isEditing}
                 onChange={handleInputChange}
                 value={editedTask.text}

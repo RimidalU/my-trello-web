@@ -1,8 +1,10 @@
 import clsx from 'clsx'
 import { ChangeEvent } from 'react'
 
+import { FieldNameType } from '../models/common.model'
+
 interface CardFIeldProps {
-    fieldName: string
+    fieldName: keyof typeof FieldNameType
     isEditing: boolean
     isOverdue?: boolean
     className?: string
@@ -20,7 +22,7 @@ const CardFIeld = ({
 }: CardFIeldProps) => {
     return (
         <div className={clsx('flex gap-2 xl:gap-4', className)}>
-            <span>{`${fieldName}:`}</span>
+            <span>{`${FieldNameType[fieldName]}:`}</span>
             <strong
                 className={clsx(
                     isOverdue && !isEditing ? 'text-warning' : 'text-white-87'
@@ -29,9 +31,10 @@ const CardFIeld = ({
                 {isEditing ? (
                     <input
                         type="text"
-                        name="startDay"
+                        name={fieldName}
                         value={value}
                         onChange={onChange}
+                        className="border rounded border-white-50 hover:border-active focus:border-active w-full pl-[5px] bg-transparent "
                     />
                 ) : (
                     value
