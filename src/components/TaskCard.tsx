@@ -48,6 +48,8 @@ function TaskCard({ task, className }: TaskCardProps) {
     }
 
     const handleCancel = () => {
+        setEditedTask(task)
+
         setIsEditing(false)
     }
 
