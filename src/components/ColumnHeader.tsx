@@ -7,6 +7,7 @@ import HappyIcon from './icons/HappyIcon'
 import SmileIcon from './icons/SmileIcon'
 import UpsideDownIcon from './icons/UpsideDownIcon'
 import TaskPurge from './TaskPurge'
+import TaskCreate from './TaskCreate'
 
 interface ColumnHeaderProps {
     taskType: TaskType
@@ -33,6 +34,7 @@ function ColumnHeader({ taskType, className }: ColumnHeaderProps) {
                 {text}
             </h2>
             {taskType === TaskType.Done && <TaskPurge />}
+            {taskType === TaskType.Todo && <TaskCreate />}
         </div>
     )
 }
