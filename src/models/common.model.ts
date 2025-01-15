@@ -7,5 +7,6 @@ enum FieldNameType {
     endDay = 'Окончание',
     text = 'Описание',
 }
+
 export type { IconComponentProps }
 export { FieldNameType }
