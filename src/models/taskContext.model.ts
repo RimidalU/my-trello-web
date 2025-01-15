@@ -7,6 +7,8 @@ enum TaskAction {
     load_tasks = 'LOAD_TASKS',
     remove_done_tasks = 'REMOVE_DONE_TASKS',
     apply_filter = 'APPLY_FILTER',
+    start_create_task = 'START_CREATE_TASK',
+    finish_create_task = 'FINISH_CREATE_TASK',
 }
 
 type Action =
@@ -16,9 +18,12 @@ type Action =
     | { type: TaskAction.load_tasks; tasks: TaskItem[] }
     | { type: TaskAction.remove_done_tasks }
     | { type: TaskAction.apply_filter; filter: string }
+    | { type: TaskAction.start_create_task }
+    | { type: TaskAction.finish_create_task }
 
 type State = {
     tasks: TaskItem[]
+    newTask: TaskItem | null
     filteredTasks: TaskItem[]
 }
 

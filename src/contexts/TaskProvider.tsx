@@ -7,12 +7,16 @@ import {
     saveTasks,
 } from '../repositories/tasks.repository'
 import { TaskType } from '../models/task.model'
-import { filterTasks } from '../utils/task.utils'
+import { filterTasks, getTaskTemplate } from '../utils/task.utils'
 
 import { initialState, TaskContext } from './TaskContext'
 
 const taskReducer = (state: State, action: Action): State => {
     switch (action.type) {
+        case 'START_CREATE_TASK':
+            return { ...state, newTask: getTaskTemplate() }
+        case 'FINISH_CREATE_TASK':
+            return { ...state, newTask: null }
         case 'LOAD_TASKS':
             return { ...state, tasks: action.tasks }
         case 'ADD_TASK':

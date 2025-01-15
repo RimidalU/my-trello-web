@@ -33,4 +33,17 @@ const filterTasks = (tasks: TaskItem[], filter: string) => {
     })
 }
 
-export { getTasksByType, isTaskOverdue, filterTasks }
+const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000
+const getTaskTemplate = () => {
+    const dateNow = new Date(Date.now()).getTime()
+
+    return {
+        id: dateNow,
+        type: TaskType.Todo,
+        startDay: dateNow,
+        endDay: dateNow + ONE_DAY_IN_MILLISECONDS,
+        text: "Please don't forget to add the task!",
+    }
+}
+
+export { getTasksByType, isTaskOverdue, filterTasks, getTaskTemplate }
