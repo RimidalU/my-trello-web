@@ -1,6 +1,10 @@
 const timestampToDateConvertor = (timestamp: number | string) =>
     new Date(timestamp).toLocaleDateString('ru-RU')
 
+const dateToTimestampConvertor = (date: string): number => {
+    const [day, month, year] = date.split('.').map(Number)
+    return new Date(year, month - 1, day).getTime()
+}
 const getStartAndEndOfDay = (date: string) => {
     const [day, month, year] = date.split('.').map(Number)
     const timeStamp = new Date(year, month - 1, day)
@@ -17,4 +21,9 @@ const isTimestampInRange = (
     end: number
 ): boolean => timestamp >= start && timestamp <= end
 
-export { timestampToDateConvertor, getStartAndEndOfDay, isTimestampInRange }
+export {
+    timestampToDateConvertor,
+    getStartAndEndOfDay,
+    isTimestampInRange,
+    dateToTimestampConvertor,
+}
