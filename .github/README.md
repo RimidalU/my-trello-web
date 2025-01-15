@@ -2,9 +2,9 @@
 
 # My Trello.
 
-> Web for my-trello service (https://github.com/RimidalU/my-trello).
+> Web for my-trello service (https://github.com/RimidalU/my-trello) (**in the future**).
 
-<!-- [![Link to My projects](https://img.shields.io/badge/Visit_My_Projects_Landing-Click_Here-black?style=plastic&logo=link&logoColor=black&labelColor=9ca3af&color=1649B5&link=https://my-projects-ten-delta.vercel.app)](https://my-projects-ten-delta.vercel.app) -->
+[![Link to My trello](https://img.shields.io/badge/Visit_My_Trello-Click_Here-black?style=plastic&logo=link&logoColor=black&labelColor=9ca3af&color=0184CF&link=https://rimidalu.github.io/my-trello-web/)](https://rimidalu.github.io/my-trello-web/)
 
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -26,13 +26,11 @@
 [License](#license) •
 [Contact](#contact)
 
-<!-- <img src="./assets/home.png" width="400" /> <img src="./assets/project.png" width="400" /> <img src="./assets/isr.png" width="400" /> -->
+<img src="./assets/home.webp" width="400" /> <img src="./assets/create.webp" width="400" /> <img src="./assets/mobile.webp" width="140" />
 
 ## Description
 
-Single page application in React.js.
-
-<!-- The site contains information about my projects, links to git hab and live demo. -->
+Single page Trello clone application in React.js.
 
 Stack: React, TypeScript, TailwindCSS.
 
@@ -52,10 +50,13 @@ Stack: React, TypeScript, TailwindCSS.
 ├── public                          # Public assets folder
 ├── src
 │   ├── App.txt                     # Main page of App
+│   ├── assets                      # Assets app
 │   ├── components                  # React components
-│   ├── data                        # Data folder
+│   ├── data                        https://github.com/RimidalU/my-trello# Data folder
+│   ├── contexts                    # React contexts
 │   ├── models                      # Models folder
 │   ├── repositories                # Repositories folder
+│   ├── utils                       # Utilities folder
 ├── tailwind.config.js              # Tailwind CSS configuration
 └── tsconfig.json                   # TypeScript configuration
 ```
@@ -64,12 +65,14 @@ Stack: React, TypeScript, TailwindCSS.
 
 - React only (no frameworks)
 - `husky` and hooks (lint in _pre-commit_, check commit message);
+- React Context;
+- React Reducer;
 
 ## How To Use
 
-<!-- Run [Live Demo](https://my-projects-ten-delta.vercel.app) -->
+Run [Live Demo](https://github.com/RimidalU/my-trello)
 
-<!-- ![tutorial][tutorial] -->
+![tutorial][tutorial]
 
 ## Project Status
 
@@ -80,7 +83,7 @@ Project is: _in progress_
 To do:
 
 - [ ] Add tests
-- [ ] ...
+- [ ] change task type
 
 Improvement:
 
@@ -99,4 +102,4 @@ Created by [@RimidalU](https://www.linkedin.com/in/uladzimir-stankevich/) - feel
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-<!-- [tutorial]: ./assets/demo.webp -->
+[tutorial]: ./assets/demo.webp
