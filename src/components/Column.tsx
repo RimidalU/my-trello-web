@@ -7,6 +7,7 @@ import { useTasks } from '../contexts/TaskProvider'
 
 import TaskCard from './TaskCard'
 import ColumnHeader from './ColumnHeader'
+import TaskEdit from './TaskEdit'
 
 interface ColumnProps {
     taskType: TaskType
@@ -33,8 +34,11 @@ function Column({ taskType, className }: ColumnProps) {
                 className
             )}
         >
-            <ColumnHeader taskType={taskType} />
+            <ColumnHeader taskType={taskType} /> console.log(state)
             <ul ref={setNodeRef} className={'flex flex-col gap-2 xl:gap-4'}>
+                {state.newTask && taskType === TaskType.Todo && (
+                    <TaskEdit key="edited-task" className="" />
+                )}
                 {tasks.map((task) => (
                     <li key={task.id}>
                         <TaskCard task={task} />
