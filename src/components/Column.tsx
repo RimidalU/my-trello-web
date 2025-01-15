@@ -34,8 +34,11 @@ function Column({ taskType, className }: ColumnProps) {
                 className
             )}
         >
-            <ColumnHeader taskType={taskType} /> console.log(state)
-            <ul ref={setNodeRef} className={'flex flex-col gap-2 xl:gap-4'}>
+            <ColumnHeader taskType={taskType} />
+            <ul
+                ref={setNodeRef}
+                className={'flex flex-col gap-2 xl:gap-4 pt-2 xl:pt-4'}
+            >
                 {state.newTask && taskType === TaskType.Todo && (
                     <TaskEdit key="edited-task" className="" />
                 )}
