@@ -5,6 +5,8 @@ import { ChangeEvent, useState } from 'react'
 import { TaskItem, TaskType } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
 import { isTaskOverdue } from '../utils/task.utils'
+import { useTasks } from '../contexts/TaskProvider'
+import { TaskAction } from '../models/taskContext.model'
 
 import TaskCardActions from './TaskCardActions'
 import CardFIeld from './CardFIeld'
@@ -15,6 +17,8 @@ interface TaskCardProps {
 }
 
 function TaskCard({ task, className }: TaskCardProps) {
+    const { dispatch } = useTasks()
+
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: task.id,
         data: task,
@@ -36,6 +40,10 @@ function TaskCard({ task, className }: TaskCardProps) {
     }
 
     const handleSave = () => {
+        dispatch({
+            type: TaskAction.update_task,
+            task: editedTask,
+        })
         setIsEditing(false)
     }
 
@@ -49,7 +57,7 @@ function TaskCard({ task, className }: TaskCardProps) {
         const { name, value } = event.target
         setEditedTask((prevTask) => ({ ...prevTask, [name]: value }))
     }
-    displayEditIcon
+
     const handleClick = (event: React.MouseEvent) => {
         event.stopPropagation()
         handleEdit()
