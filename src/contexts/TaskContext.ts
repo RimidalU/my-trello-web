@@ -5,6 +5,7 @@ import { getInitialTasks, getTasks } from '../repositories/tasks.repository'
 
 const initialState: State = {
     filteredTasks: [],
+    newTask: null,
     tasks: getTasks() ?? getInitialTasks(),
 }
 
