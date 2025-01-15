@@ -3,7 +3,10 @@ import { useDraggable } from '@dnd-kit/core'
 import { ChangeEvent, useState } from 'react'
 
 import { TaskItem, TaskType } from '../models/task.model'
-import { timestampToDateConvertor } from '../utils/common.utils'
+import {
+    dateToTimestampConvertor,
+    timestampToDateConvertor,
+} from '../utils/common.utils'
 import { isTaskOverdue } from '../utils/task.utils'
 import { useTasks } from '../contexts/TaskProvider'
 import { TaskAction } from '../models/taskContext.model'
@@ -26,8 +29,14 @@ function TaskCard({ task, className }: TaskCardProps) {
     const isOverdue = isTaskOverdue(task.endDay) && task.type !== TaskType.Done
     const displayEditIcon = task.type === TaskType.Todo
 
+    const initTask = {
+        ...task,
+        startDay: timestampToDateConvertor(task.startDay),
+        endDay: timestampToDateConvertor(task.endDay),
+    }
+
     const [isEditing, setIsEditing] = useState(false)
-    const [editedTask, setEditedTask] = useState({ ...task })
+    const [editedTask, setEditedTask] = useState(initTask)
 
     const style = transform
         ? {
@@ -42,13 +51,18 @@ function TaskCard({ task, className }: TaskCardProps) {
     const handleSave = () => {
         dispatch({
             type: TaskAction.update_task,
-            task: editedTask,
+            task: {
+                ...editedTask,
+
+                startDay: dateToTimestampConvertor(editedTask.startDay),
+                endDay: dateToTimestampConvertor(editedTask.endDay),
+            },
         })
         setIsEditing(false)
     }
 
     const handleCancel = () => {
-        setEditedTask(task)
+        setEditedTask(initTask)
 
         setIsEditing(false)
     }
@@ -56,7 +70,7 @@ function TaskCard({ task, className }: TaskCardProps) {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.stopPropagation()
 
-        const { name, value } = event.target
+        let { name, value } = event.target
         setEditedTask((prevTask) => ({ ...prevTask, [name]: value }))
     }
 
@@ -81,7 +95,7 @@ function TaskCard({ task, className }: TaskCardProps) {
                 fieldName={'startDay'}
                 isEditing={isEditing}
                 onChange={handleInputChange}
-                value={timestampToDateConvertor(editedTask.startDay)}
+                value={editedTask.startDay}
             />
 
             <CardFIeld
@@ -89,7 +103,7 @@ function TaskCard({ task, className }: TaskCardProps) {
                 isEditing={isEditing}
                 isOverdue={isOverdue}
                 onChange={handleInputChange}
-                value={timestampToDateConvertor(editedTask.endDay)}
+                value={editedTask.endDay}
             />
 
             <CardFIeld
