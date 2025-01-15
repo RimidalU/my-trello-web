@@ -8,7 +8,7 @@ interface CardFIeldProps {
     isEditing: boolean
     isOverdue?: boolean
     className?: string
-    value: string | number
+    value: string
     onChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
