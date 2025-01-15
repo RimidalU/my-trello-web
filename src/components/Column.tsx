@@ -34,10 +34,7 @@ function Column({ taskType, className }: ColumnProps) {
             )}
         >
             <ColumnHeader taskType={taskType} />
-            <ul
-                ref={setNodeRef}
-                className={'flex flex-col gap-2 xl:gap-4 pt-2 xl:pt-4'}
-            >
+            <ul ref={setNodeRef} className={'flex flex-col gap-2 xl:gap-4'}>
                 {tasks.map((task) => (
                     <li key={task.id}>
                         <TaskCard task={task} />
