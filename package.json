@@ -12,7 +12,8 @@
         "commitlint": "commitlint --edit",
         "prepare": "husky",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d dist",
+        "start": "vite"
     },
     "dependencies": {
         "@dnd-kit/core": "^6.3.1",
