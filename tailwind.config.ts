@@ -24,5 +24,3 @@ export default {
     },
     plugins: [],
 }
-
-// transition duration-300 ease-in-out
