@@ -1,13 +1,14 @@
 import clsx from 'clsx'
 import { useDraggable } from '@dnd-kit/core'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { TaskItem, TaskType } from '../models/task.model'
 import { timestampToDateConvertor } from '../utils/common.utils'
 import { isTaskOverdue } from '../utils/task.utils'
+import { FieldNameType } from '../models/common.model'
 
-import EditIcon from './icons/EditIcon'
 import TaskCardActions from './TaskCardActions'
+import CardFIeld from './CardFIeld'
 
 interface TaskCardProps {
     task: TaskItem
@@ -43,7 +44,7 @@ function TaskCard({ task, className }: TaskCardProps) {
         setIsEditing(false)
     }
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setEditedTask((prevTask) => ({ ...prevTask, [name]: value }))
     }
@@ -60,65 +61,31 @@ function TaskCard({ task, className }: TaskCardProps) {
             {...attributes}
             style={style}
             className={clsx(
-                'bg-black-10 p-2 xl:p-4 rounded touch-none text-xs xl:text-sm',
+                'bg-black-10 p-2 xl:p-4 rounded touch-none text-xs xl:text-sm flex flex-col gap-2',
                 className
             )}
         >
-            <div className="flex gap-2 xl:gap-4">
-                <span>Начало:</span>
-                <strong className="text-white-87">
-                    {isEditing ? (
-                        <input
-                            type="text"
-                            name="startDay"
-                            value={editedTask.startDay}
-                            onChange={handleInputChange}
-                        />
-                    ) : (
-                        timestampToDateConvertor(editedTask.startDay)
-                    )}
-                </strong>
-            </div>
-            isOverdue{' '}
-            <div className="flex gap-2 xl:gap-4">
-                <span>Окончание:</span>
-                <strong
-                    className={clsx(
-                        isOverdue ? 'text-warning' : 'text-white-87',
-                        isEditing ? 'hidden' : ''
-                    )}
-                >
-                    {timestampToDateConvertor(editedTask.endDay)}
-                </strong>
-                <strong
-                    className={clsx(
-                        isOverdue ? 'text-warning' : 'text-white-87',
-                        isEditing ? '' : 'hidden'
-                    )}
-                >
-                    <input
-                        type="text"
-                        name="endDay"
-                        value={editedTask.endDay}
-                        onChange={handleInputChange}
-                    />
-                </strong>
-            </div>
-            <div className="flex gap-2 xl:gap-4">
-                <span>Описание:</span>
-                <strong className="text-white-87">
-                    {isEditing ? (
-                        <input
-                            type="text"
-                            name="text"
-                            value={editedTask.text}
-                            onChange={handleInputChange}
-                        />
-                    ) : (
-                        editedTask.text
-                    )}
-                </strong>
-            </div>
+            <CardFIeld
+                fieldName={FieldNameType.startDay}
+                isEditing={isEditing}
+                onChange={handleInputChange}
+                value={timestampToDateConvertor(editedTask.startDay)}
+            />
+
+            <CardFIeld
+                fieldName={FieldNameType.endDay}
+                isEditing={isEditing}
+                isOverdue={isOverdue}
+                onChange={handleInputChange}
+                value={timestampToDateConvertor(editedTask.endDay)}
+            />
+
+            <CardFIeld
+                fieldName={FieldNameType.text}
+                isEditing={isEditing}
+                onChange={handleInputChange}
+                value={editedTask.text}
+            />
             {displayEditIcon && (
                 <TaskCardActions
                     handleEdit={handleClick}
