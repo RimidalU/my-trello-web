@@ -1,8 +1,6 @@
-interface GhostIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const GhostIcon = ({ className }: GhostIconProps) => {
+const GhostIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

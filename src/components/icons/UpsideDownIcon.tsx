@@ -1,8 +1,6 @@
-interface UpsideDownIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const UpsideDownIcon = ({ className }: UpsideDownIconProps) => {
+const UpsideDownIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

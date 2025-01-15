@@ -1,8 +1,6 @@
-interface CheckIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const CheckIcon = ({ className }: CheckIconProps) => {
+const CheckIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

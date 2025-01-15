@@ -1,8 +1,6 @@
-interface SearchIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const SearchIcon = ({ className }: SearchIconProps) => {
+const SearchIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

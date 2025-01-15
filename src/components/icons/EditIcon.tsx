@@ -1,8 +1,6 @@
-interface EditIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const EditIcon = ({ className }: EditIconProps) => {
+const EditIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

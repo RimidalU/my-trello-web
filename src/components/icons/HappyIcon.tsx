@@ -1,8 +1,6 @@
-interface HappyIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const HappyIcon = ({ className }: HappyIconProps) => {
+const HappyIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

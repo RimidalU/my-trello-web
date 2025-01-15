@@ -1,8 +1,6 @@
-interface CrossIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const CrossIcon = ({ className }: CrossIconProps) => {
+const CrossIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"

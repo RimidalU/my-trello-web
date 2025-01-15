@@ -1,8 +1,6 @@
-interface TrashIconProps {
-    className?: string
-}
+import { IconComponentProps } from '../../models/common.model'
 
-const TrashIcon = ({ className }: TrashIconProps) => {
+const TrashIcon = ({ className }: IconComponentProps) => {
     return (
         <svg
             width="24"
