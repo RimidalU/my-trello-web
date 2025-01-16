@@ -18,8 +18,8 @@ const testsTasks = [
     {
         id: 5,
         type: TaskType.Done,
-        startDay: 1700000030000,
-        endDay: 1703740804000,
+        startDay: 1767292800000,
+        endDay: 1767379200000,
         text: 'Task 3',
     },
 ]
