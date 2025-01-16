@@ -37,7 +37,12 @@ Stack: React, TypeScript, TailwindCSS.
 ## Project setup
 
 - Clone this repo to your desktop and run `npm install` to install all the dependencies.
-- Once the dependencies are installed, you can run `npm dev` to start the application.
+- Once the dependencies are installed, you can run `npm run dev` to start the application.
+- Run [Live Demo](https://github.com/RimidalU/my-trello)
+- Run tests `npm run test` 
+   >files test:
+   >- [common.utils](../src/utils/common.utils.test.ts)
+   >- [task.utils](../src/utils/task.utils.test.ts)
 - Enjoy.
 
 ### Project structure
@@ -52,7 +57,7 @@ Stack: React, TypeScript, TailwindCSS.
 │   ├── App.txt                     # Main page of App
 │   ├── assets                      # Assets app
 │   ├── components                  # React components
-│   ├── data                        https://github.com/RimidalU/my-trello# Data folder
+│   ├── data                        # Data folder
 │   ├── contexts                    # React contexts
 │   ├── models                      # Models folder
 │   ├── repositories                # Repositories folder
